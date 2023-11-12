@@ -1,16 +1,21 @@
 // ChatInterface.js
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import OpenAI from 'openai';
 import './ChatInterface.css';
+
 
 const ChatInterface = () => {
   const [Prompt, setPrompt] = useState('');
   const [response, setResponse] = useState('');
   const [messageHistory, setMessageHistory] = useState([]);
 
+  useEffect(() => {
+    const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
+  }, []);
+
   const generateResponse = () => {
     const openai = new OpenAI({
-      apiKey: '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',
+      apiKey: process.env.REACT_APP_OPENAI_API_KEY,
       dangerouslyAllowBrowser: true,
     });
 
@@ -86,8 +91,8 @@ const ChatInterface = () => {
         </div>
       </div>
 
-      {/* Response */}
-      {/* <div className="response-text">
+      {/* Response
+      <div className="response-text">
         <textarea
           className="textarea"
           name="response"
