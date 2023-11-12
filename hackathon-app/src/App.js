@@ -57,7 +57,6 @@ class App extends React.Component {
       <div className="App wrapper">
         <SideBar toggle={this.toggle} isOpen={this.state.isOpen} />
         <Content toggle={this.toggle} isOpen={this.state.isOpen} />
-       
       </div>
 
 

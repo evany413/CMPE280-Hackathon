@@ -56,6 +56,11 @@ class SideBar extends React.Component {
               Import/Export Flow
             </Nav.Link>
           </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/ChatInterfaceHistory">
+              Questions?
+            </Nav.Link>
+          </Nav.Item>
         </Nav>
       </div>
     );
