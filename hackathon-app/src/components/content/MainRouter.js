@@ -17,6 +17,7 @@ import Import12 from './pages/Import2020SAWheat'
 import Predict from './pages/Predict'
 import Banana from './pages/Banana'
 import Mangoes from './pages/Mangoes'
+import ChatInterfaceHistory from './pages/ChatInterfaceHistory'
 
 
 // This is the main routing for the application
@@ -42,6 +43,7 @@ class MainRouter extends Component {
           <Route exact path='/crops/2' component={Predict}/>
           <Route exact path='/crops/0' component={Banana}/>
           <Route exact path='/crops/1' component={Mangoes}/>
+          <Route exact path='/ChatInterfaceHistory' component={ChatInterfaceHistory}/>
         </Switch>
       </main>
     )
