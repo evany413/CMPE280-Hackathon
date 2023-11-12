@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Button, Nav, Modal, InputGroup, FormControl, ListGroup, Row, Col, Container } from "react-bootstrap";
+import { Navbar, Button, Modal, InputGroup, FormControl, ListGroup, Row, Col } from "react-bootstrap";
 
 class NavBar extends React.Component {
 
@@ -21,8 +21,8 @@ class NavBar extends React.Component {
   };
 
   addAnnotation = () => {
-    let storageAnnotation = localStorage.getItem("Annotation")? JSON.parse(localStorage.getItem("Annotation")) : [];
-    
+    let storageAnnotation = localStorage.getItem("Annotation") ? JSON.parse(localStorage.getItem("Annotation")) : [];
+
     // append new annotation to local storage
     storageAnnotation.push(this.state.annotation);
     localStorage.setItem("Annotation", JSON.stringify(storageAnnotation));
@@ -33,7 +33,7 @@ class NavBar extends React.Component {
   }
 
   componentDidMount() {
-    let storageAnnotation = localStorage.getItem("Annotation")? JSON.parse(localStorage.getItem("Annotation")) : [];
+    let storageAnnotation = localStorage.getItem("Annotation") ? JSON.parse(localStorage.getItem("Annotation")) : [];
     this.setState({ annotationList: storageAnnotation });
   }
 
@@ -48,7 +48,6 @@ class NavBar extends React.Component {
           <h4 className="navbar-title">Macroeconomic Researcher Food Security Time Series and Large Language Chat GPT Dashboard</h4>
         </Navbar>
 
-        {/* annotation modal */}
         <Modal show={this.state.isActive} onHide={this.handleClose} animation={false}>
           <Modal.Header closeButton>
             <Modal.Title>Add Annotation</Modal.Title>
