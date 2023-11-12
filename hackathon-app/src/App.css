@@ -4,10 +4,6 @@
   align-items: stretch;
 }
 
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-@import "https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,500,600,700";
-
-
 body {
   /*font-family: 'Poppins', sans-serif;*/
   font-family: 'Nunito Sans', sans-serif;
@@ -47,7 +43,7 @@ a:focus {
   color: #adb5bd;
 }
 
-.sidebar-header h3{
+.sidebar-header h3 {
   color: #fff;
   padding: 1em;
 }
@@ -57,7 +53,7 @@ a:focus {
   padding: 10px;
 }
 
-.collapse.show, 
+.collapse.show,
 .collapsing {
   background: #313b4c;
 }
@@ -95,7 +91,7 @@ li a.dropdown-toggle::after {
   top: 10%
 }
 
-.sidebar-header > button {
+.sidebar-header>button {
   position: relative;
   float: right;
   margin: .5em;
@@ -114,22 +110,22 @@ li a.dropdown-toggle::after {
   height: 100vh;
 }
 
-.navbar-title { 
+.navbar-title {
   font-weight: bold;
   margin: auto;
 }
 
 @media only screen and (max-width: 575.98px) {
   body {
-    overflow:  hidden;
+    overflow: hidden;
   }
-  
+
   .content.is-open {
     /*margin-left: 100%;*/
     display: none;
     transition: all 0.5s;
   }
-  
+
   .sidebar.is-open {
     min-width: 100%;
     max-width: 100%;
@@ -137,17 +133,17 @@ li a.dropdown-toggle::after {
     transition: all 0.5s, height 0s;
     height: 100vh !important;
   }
-  
-  .sidebar.is-open > .sidebar-header button {
+
+  .sidebar.is-open>.sidebar-header button {
     display: block;
   }
-  
+
   li a.dropdown-toggle::after {
     display: inline-block;
     position: relative;
     left: 68%;
   }
-  
+
 }
 
 
@@ -155,95 +151,277 @@ li a.dropdown-toggle::after {
     SLIDER STYLE
 ----------------------------------------------------- */
 
+
 .container {
-  padding-bottom: 10%;
+  overflow: auto;
+}
+
+.countryWrapper {
+  float: left;
+}
+
+.yearWrapper {
+  width: 200px;
+  float: right;
+}
+
+.multi-range-slider * {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+.multi-range-slider {
   display: flex;
+  position: relative;
+  border: solid 1px gray;
+  border-radius: 10px;
+  padding: 20px 10px;
+  box-shadow: 1px 1px 4px black;
+  flex-direction: column;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge,*/
+}
+
+.multi-range-slider .bar {
+  display: flex;
+}
+
+.multi-range-slider .bar-left {
+  width: 25%;
+  background-color: #f0f0f0;
+  border-radius: 10px 0px 0px 10px;
+  box-shadow: inset 0px 0px 5px black;
+  padding: 4px 0px;
+}
+
+.multi-range-slider .bar-right {
+  width: 25%;
+  background-color: #f0f0f0;
+  border-radius: 0px 10px 10px 0px;
+  box-shadow: inset 0px 0px 5px black;
+}
+
+.multi-range-slider .bar-inner {
+  background-color: lime;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  justify-content: space-between;
+  position: relative;
+  border: solid 1px black;
+  justify-content: space-between;
+  box-shadow: inset 0px 0px 5px black;
+}
+
+.multi-range-slider .bar-inner-left {
+  width: 50%;
+}
+
+.multi-range-slider .bar-inner-right {
+  width: 50%;
+}
+
+.multi-range-slider .thumb {
+  background-color: white;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.multi-range-slider .thumb::before {
+  content: '';
+  background-color: inherit;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: solid 1px black;
+  box-shadow: 0px 0px 3px black, inset 0px 0px 5px gray;
+  border-radius: 50%;
+  z-index: 1;
+  margin: -8px -12px;
+  cursor: pointer;
+}
+
+.multi-range-slider .input-type-range:focus+.thumb::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -7px;
+  width: 11px;
+  height: 11px;
+  z-index: 2;
+  border-radius: 50%;
+  border: dotted 1px black;
+  box-shadow: 0px 0px 5px white, inset 0px 0px 10px black;
+}
+
+.multi-range-slider .caption {
+  position: absolute;
+  bottom: 35px;
+  width: 2px;
+  height: 2px;
+  left: 1px;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  overflow: visible;
+  display: none;
+}
+
+.multi-range-slider .thumb .caption * {
+  position: absolute;
+  min-width: 30px;
+  height: 30px;
+  font-size: 75%;
+  text-align: center;
+  line-height: 30px;
+  background-color: blue;
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0px 0px 5px black;
+  padding: 0px 5px;
+  white-space: nowrap;
+}
+
+.multi-range-slider .thumb:active .caption {
+  display: flex;
+}
+
+.multi-range-slider .input-type-range:focus+.thumb .caption {
+  display: flex;
+}
+
+.multi-range-slider .input-type-range {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.multi-range-slider .ruler {
+  margin: 10px 0px -5px 0px;
+  display: flex;
+  /* display: none; */
+  overflow: hidden;
+}
+
+.multi-range-slider .ruler .ruler-rule {
+  border-left: solid 1px;
+  border-bottom: solid 1px;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 5px 0px;
+}
+
+.multi-range-slider .ruler .ruler-rule:last-child {
+  border-right: solid 1px;
+}
+
+.multi-range-slider .ruler .ruler-sub-rule {
+  border-left: solid 1px;
+  /* border-bottom: solid 1px; */
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 3px 0px;
+  bottom: 0px;
+  margin-bottom: -5px;
+}
+
+.multi-range-slider .ruler .ruler-sub-rule:first-child {
+  border-left: none;
+}
+
+.multi-range-slider .labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  margin-top: 10px;
+  margin-bottom: -20px;
+  /* display: none; */
+}
+
+.multi-range-slider .label {
+  font-size: 80%;
+  display: flex;
+  width: 1px;
   justify-content: center;
 }
 
-.slider {
-  position: relative;
-  width: 200px;
+.multi-range-slider .label:first-child {
+  justify-content: start;
 }
 
-.slider__track,
-.slider__range,
-.slider__left-value,
-.slider__right-value {
-  position: absolute;
+.multi-range-slider .label:last-child {
+  justify-content: end;
 }
 
-.slider__track,
-.slider__range {
-  border-radius: 3px;
-  height: 5px;
+.multi-range-slider.zero-ranage-margin .thumb-left {
+  right: 12px;
 }
 
-.slider__track {
-  background-color: #0e1113;
-  width: 100%;
-  z-index: 1;
+.multi-range-slider.zero-ranage-margin .thumb-right {
+  left: 8px;
 }
 
-.slider__range {
-  background-color: #0a0d0d;
-  z-index: 2;
+
+/* Disabled */
+.multi-range-slider.disabled {
+  border: solid 1px rgb(200, 200, 200);
+  box-shadow: 1px 1px 4px rgb(180, 180, 180);
+  color: rgb(180, 180, 180);
 }
 
-.slider__left-value,
-.slider__right-value {
-  color: #5b8cbc;
-  font-size: 12px;
-  margin-top: 20px;
+.multi-range-slider .bar {
+  display: flex;
 }
 
-.slider__left-value {
-  left: 6px;
+.multi-range-slider.disabled .bar-left {
+  background-color: #c9c9c9;
+  box-shadow: inset 0px 0px 5px rgb(160, 160, 160);
 }
 
-.slider__right-value {
-  right: -4px;
+.multi-range-slider.disabled .bar-right {
+  background-color: #c9c9c9;
+  box-shadow: inset 0px 0px 5px rgb(160, 160, 160);
 }
 
-/* Removing the default appearance */
-.thumb,
-.thumb::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  -webkit-tap-highlight-color: transparent;
+.multi-range-slider.disabled .bar-inner {
+  background-color: rgb(130 243 130);
+  border: solid 1px rgb(149, 149, 149);
+  box-shadow: inset 0px 0px 5px rgb(103, 103, 103);
 }
 
-.thumb {
-  pointer-events: none;
-  position: absolute;
-  height: 0;
-  width: 200px;
-  outline: none;
+.multi-range-slider.disabled .thumb {
+  background-color: white;
 }
 
-.thumb--zindex-3 {
-  z-index: 3;
+.multi-range-slider.disabled .thumb::before {
+  border: solid 1px rgb(200, 200, 200);
+  box-shadow: 0px 0px 3px rgb(35, 35, 35), inset 0px 0px 5px gray;
 }
 
-.thumb--zindex-4 {
-  z-index: 4;
+.multi-range-slider.disabled .input-type-range:focus+.thumb::after {
+  border: dotted 1px rgb(35, 35, 35);
+  box-shadow: 0px 0px 5px white, inset 0px 0px 10px rgb(35, 35, 35);
 }
 
-.thumb--zindex-5 {
-  z-index: 5;
+.multi-range-slider.disabled .thumb .caption * {
+  background-color: rgb(84, 84, 137);
+  color: rgb(199, 199, 199);
+  box-shadow: 0px 0px 5px rgb(35, 35, 35);
 }
-
-/* For Chrome browsers */
-.thumb::-webkit-slider-thumb {
-  background-color: #383b3b;
-  border: none;
-  border-radius: 10%;
-  box-shadow: 0 0 1px 1px #0f1010;
-  cursor: pointer;
-  height: 18px;
-  width: 5px;
-  margin-top: 2px;
-  pointer-events: all;
-  position: relative;
-}
-

@@ -14,9 +14,9 @@ import Import9 from './pages/Import2020SARice'
 import Import10 from './pages/Import2018SAWheat'
 import Import11 from './pages/Import2019SAWheat'
 import Import12 from './pages/Import2020SAWheat'
-import Predict from './pages/Predict'
-import Banana from './pages/Banana'
-import Mangoes from './pages/Mangoes'
+// import Predict from './pages/Predict'
+// import Banana from './pages/Banana'
+// import Mangoes from './pages/Mangoes'
 import ChatInterfaceHistory from './pages/ChatInterfaceHistory'
 
 
