@@ -46,10 +46,10 @@ class SideBar extends React.Component {
             items={["Reserves", "GNI","Total Debt %"]}
           />  
 
-          <SubMenuCrop
+          {/* <SubMenuCrop
             title="Crops"
             items={["Banana","Mangoes", "Walnuts"]}
-          />
+          /> */}
 
           <Nav.Item>
             <Nav.Link href="/import">

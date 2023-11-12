@@ -298,7 +298,7 @@ class Home extends React.Component {
     
     return (
       <div>
-          <label for="country-choice">Select Country: </label>
+          <label htmlFor="country-choice">Select Country: </label>
           <input list="country-choices" id="country-choice" name="country-choice" 
            onChange={(event) => {
             this.onCountryChange(event);

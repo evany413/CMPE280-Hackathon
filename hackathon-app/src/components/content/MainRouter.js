@@ -40,9 +40,6 @@ class MainRouter extends Component {
           <Route exact path='/import2018SAWheat' component={Import10}/>
           <Route exact path='/import2019SAWheat' component={Import11}/>
           <Route exact path='/import2020SAWheat' component={Import12}/>
-          <Route exact path='/crops/2' component={Predict}/>
-          <Route exact path='/crops/0' component={Banana}/>
-          <Route exact path='/crops/1' component={Mangoes}/>
           <Route exact path='/ChatInterfaceHistory' component={ChatInterfaceHistory}/>
         </Switch>
       </main>

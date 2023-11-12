@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import SideBar from "./components/sidebar/SideBar";
 import Content from "./components/content/Content";
-import MultiRangeSlider from "./components/content/pages/RangeSlider";
 
 class App extends React.Component {
   constructor(props) {
