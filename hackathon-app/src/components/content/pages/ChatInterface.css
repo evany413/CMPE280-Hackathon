@@ -5,8 +5,9 @@
 }
 
 .message-history {
+  margin-top: 10px;
   overflow-y: auto;
-  max-height: 400px;
+  height: 630px;
   padding: 10px;
   border-radius: 8px;
   background-color: #222; /* Set a slightly darker background for the message history */
@@ -43,7 +44,7 @@
   box-sizing: border-box;
   margin-top: 10px;
   margin-right: 10px;
-  color: #111;
+  color: rgb(255, 255, 255);
   background-color: rgb(65, 64, 64);
 }
 
